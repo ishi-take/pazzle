@@ -16,8 +16,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    height: -webkit-fill-available;
-    /* モバイルのツールバー分を考慮 */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     touch-action: none;
 }
@@ -27,8 +25,8 @@ body {
     width: 100%;
     max-width: 480px;
     height: 100%;
-    /* max-height: 800px; */
-    /* 固定上限を外して画面一杯に */
+    max-height: 850px;
+    /* PCでの上限を復活 */
     background-color: #000;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -71,8 +69,8 @@ canvas {
 
 #player-hp-bar {
     top: auto;
-    bottom: calc(100vw * (5 / 6) + 10px);
-    /* 盤面（6列5行、アスペクト比5/6）のすぐ上に配置 */
+    bottom: calc(min(100vw, 480px) * (5 / 6) + 10px);
+    /* 盤面の上に配置（PCでの横幅上限480pxを考慮） */
     position: absolute;
     left: 10px;
     width: calc(100% - 20px);
